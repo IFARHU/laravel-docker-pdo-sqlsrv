@@ -19,7 +19,8 @@ RUN apt-get update \
     && apt-get install unixodbc-dev
 
 ## Code Sniffer
-RUN apt-get install php-codesniffer
+RUN composer global require "squizlabs/php_codesniffer=*"
+ENV PATH /root/.composer/vendor/bin:$PATH
 
 ## PDO SQL Server
 RUN echo extension=pdo_sqlsrv.so >> /etc/php/7.2/fpm/conf.d/30-pdo_sqlsrv.ini \
