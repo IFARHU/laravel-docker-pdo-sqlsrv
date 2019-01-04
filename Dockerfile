@@ -24,3 +24,7 @@ RUN echo extension=pdo_sqlsrv.so >> /etc/php/7.2/fpm/conf.d/30-pdo_sqlsrv.ini \
 && echo extension=sqlsrv.so >> /etc/php/7.2/cli/conf.d/20-sqlsrv.ini \
 && pecl install sqlsrv \
 && pecl install pdo_sqlsrv
+
+## Node and NPM
+RUN apt-get install -y nodejs \
+&& apt-get install -y npm
