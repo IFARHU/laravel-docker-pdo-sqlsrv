@@ -16,8 +16,7 @@ RUN apt-get update \
     && ACCEPT_EULA=Y apt-get install mssql-tools -y \
     && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile \
     && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc \
-    && apt-get install unixodbc-dev -y \
-    && apt-get install php7.2-sqlite -y
+    && apt-get install unixodbc-dev -y
 
 ## Code Sniffer
 RUN composer global require "squizlabs/php_codesniffer=*"
