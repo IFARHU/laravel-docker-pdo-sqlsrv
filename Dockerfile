@@ -6,7 +6,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 ## Replace shell with bash (for source)
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-## MSSQL Tools, UNIX ODBC
+## MSSQL Tools, UNIX ODBC, SQL lite 3 for PHP
 RUN apt-get update \
     && apt-get install apt-transport-https ca-certificates -y \
     && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
@@ -17,6 +17,7 @@ RUN apt-get update \
     && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bash_profile \
     && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc \
     && apt-get install unixodbc-dev
+    && apt-get install php7.2-sqlite3
 
 ## Code Sniffer
 RUN composer global require "squizlabs/php_codesniffer=*"
