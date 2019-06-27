@@ -18,9 +18,9 @@ RUN apt-get update \
     && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc \
     && apt-get install unixodbc-dev
 
-## sqlite
+## sqlite & php intl
 RUN apt-get update \
-    && apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install php7.2-sqlite
+    && apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" install php7.2-sqlite php7.2-intl
 
 ## Code Sniffer
 RUN composer global require "squizlabs/php_codesniffer=*"
